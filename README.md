@@ -1,2 +1,2 @@
 # 240_FinalProject
-CSPC 240; Final Group Project
+CSPC 240: Final Group Project
