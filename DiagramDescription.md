@@ -1,5 +1,5 @@
 #Bank
-	##Variables
+##Variables
 		
 		- String path
 			String storing the relative path to the account files directories
@@ -33,7 +33,7 @@
 			Write updated info into file. Exit program.
 #Account
 
-	##Variables
+##Variables
 
 		- int pin
 			4 digit int.
