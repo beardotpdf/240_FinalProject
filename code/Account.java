@@ -6,65 +6,82 @@ import java.util.Random;
 
 public class Account {
 
-	private int pin;
-	private double accountNum;
-	private double routingNum;
-	private float balance;
+	private String pin;
+	private String accountNum;
+	private String routingNum;
+	private double balance;
+	private String fname;
+	private String lname;
 
-	public Account() {
-		//TODO is this method needed?
-		//TODO if it is, generate pin, nums, initialize balance	
-		generateNums();
-	} // close default constructor
-
-	public Account(int pin) { // new acco
+	public Account(String pin) { // new acco
 		this.pin = pin;
 		generateNums();
 		balance = 0;
 	} // close non-defualt constructor
 
-	public Account(int pin, double accountNum, double routingNum, float balance) {
+	public Account(String accountNum, String pin, String routingNum, String balance, String fname, String lname) {
 		this.pin = pin;
 		this.accountNum = accountNum;
-		this.routingNum = routingNum;
-		this.balance = balance;
+		this.routingNum = routingNum; 
+		this.balance = Double.valueOf(balance);
+		this.fname = fname;
+		this.lname = lname;
 	} // close non-default constructor
 
 
 	// Getters and Setters for accountNum, routingNum, and balance
-	public double getAccountNum() {
+	public String getAccountNum() {
 		return accountNum;
 	} // close getAccountNum
 
-	public void setAccountNum(double accountNum) {
+	public void setAccountNum(String accountNum) {
 		this.accountNum = accountNum;
 	} // close setAccountNum
 
 
-	public double getRoutingNum() {
+	public String getRoutingNum() {
 		return routingNum;
 	} // close getRoutingNum
 
-	public void setRoutingNum(double routingNum) {
+	public void setRoutingNum(String routingNum) {
 		this.routingNum = routingNum;
 	} // close setRoutingNum
 
 
-	public float getBalance() {
+	public double getBalance() {
 		return balance;
 	} // close getBalance
 
-	public void setBalance(float balance) {
+	public void setBalance(double balance) {
 		this.balance = balance;
 	} // close setBalance
 
+	public void setName(String fname, String lname){
+		this.fname = fname;
+		this.lname = lname;
+	}
 
+	public String getFname() {
+		return fname;
+	} // close getFname
+
+	public String getLname() {
+		return lname;
+	} // close getLname
+
+	public String getFileName(){
+		return (getAccountNum() + ".account");
+	} // close getFileName
+
+	public boolean login(String pin){
+		return this.pin.equals(pin);
+	} // close login
 
 	// generates and sets a 16 digit int for both accountNum and routingNum
 	public void generateNums() {
 		Random rnd = new Random();
-		accountNum = 1000000000000000.0 + rnd.nextDouble(9000000000000000.0);
-		routingNum = 1000000000000000.0 + rnd.nextDouble(9000000000000000.0);
+		accountNum = String.valueOf(1000000000000000.0 + rnd.nextDouble(9000000000000000.0));
+		routingNum = String.valueOf(1000000000000000.0 + rnd.nextDouble(9000000000000000.0));
 		//TODO truncate routingNum and accountNum when displaying to screen
 	} // close generateNums method
 
